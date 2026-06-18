@@ -17,6 +17,7 @@ export function validarFormulario(evento) {
     // Validacion: formato de correo simple (incluye @)
     if (!email.includes('@')) {
         alert('Error: Ingresa un correo valido');
+        return;
     }
 }
 
