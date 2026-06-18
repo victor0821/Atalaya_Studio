@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atalaya Studio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="#inicio">⬡ Atalaya Studio</a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonio">Testimonios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <!-- Botón de tema — conectado a themes.js desde main.js -->
+          <li class="nav-item ms-2">
+            <button id="btn-tema" class="btn btn-outline-secondary btn-sm"
+                    title="Cambiar tema" aria-label="Cambiar tema claro/oscuro">
+              🌙
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="py-5">
+    <div class="container text-center py-4">
+      <span class="badge bg-primary mb-3 px-3 py-2 fs-6">Agencia Creativa Digital</span>
+      <h2 class="display-5 fw-bold mt-2">
+        Transformamos ideas en<br>experiencias digitales
+      </h2>
+      <p class="lead text-body-secondary mt-3 mb-4 col-md-8 mx-auto">
+        Diseño web, branding y estrategia digital potenciada con inteligencia artificial.
+      </p>
+      <a href="#servicios" class="btn btn-primary btn-lg px-4 me-2">Ver Servicios</a>
+      <a href="#contacto" class="btn btn-outline-secondary btn-lg px-4">Contáctanos</a>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="py-5 bg-body-secondary">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-1">Nuestros Servicios</h2>
+      <p class="text-center text-body-secondary mb-5">Con implementación de inteligencia artificial</p>
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <div class="fs-1 mb-3">🎨</div>
+              <h3 class="h5 fw-bold card-title">Diseño Web</h3>
+              <p class="card-text text-body-secondary">
+                Sitios modernos y responsivos adaptados a tu marca y audiencia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <div class="fs-1 mb-3">⚙️</div>
+              <h3 class="h5 fw-bold card-title">Desarrollo a Medida</h3>
+              <p class="card-text text-body-secondary">
+                Aplicaciones web robustas, escalables y de alto rendimiento.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <div class="fs-1 mb-3">📈</div>
+              <h3 class="h5 fw-bold card-title">Consultoría SEO</h3>
+              <p class="card-text text-body-secondary">
+                Optimización para motores de búsqueda y estrategia de contenido.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonio" class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Lo que dicen nuestros clientes</h2>
+      <!-- main.js inyecta las tarjetas aquí -->
+      <div id="contenedor-testimonio" class="row g-4"></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-5 bg-body-secondary">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+          <h2 class="fw-bold text-center mb-1">Contáctanos</h2>
+          <p class="text-center text-body-secondary mb-4">
+            Cuéntanos tu proyecto, te respondemos en 24 h.
+          </p>
+
+          <!-- Alerta de éxito (oculta por defecto) -->
+          <div id="alerta-contacto" class="alert alert-success d-none" role="alert">
+            ✅ ¡Mensaje enviado! Te contactaremos pronto.
+          </div>
+
+          <!-- Formulario — id para que main.js lo encuentre -->
+          <form id="formulario-contacto" novalidate>
+            <div class="mb-3">
+              <label for="nombre" class="form-label fw-semibold">Nombre</label>
+              <input type="text" class="form-control" id="nombre"
+                     name="nombre" placeholder="Tu nombre completo" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+              <input type="email" class="form-control" id="email"
+                     name="email" placeholder="tucorreo@ejemplo.com" required>
+            </div>
+            <div class="mb-4">
+              <label for="mensaje" class="form-label fw-semibold">Mensaje</label>
+              <textarea class="form-control" id="mensaje" name="mensaje"
+                        rows="4" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Enviar Mensaje
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 bg-body-tertiary text-center">
+    <p class="mb-1 fw-semibold">© 2026 Atalaya Studio. Todos los derechos reservados.</p>
+    <p class="text-body-secondary small mb-0">Síguenos en nuestras redes sociales.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+          crossorigin="anonymous"></script>
+
+  <!-- type="module" activa los imports de ES6 -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
